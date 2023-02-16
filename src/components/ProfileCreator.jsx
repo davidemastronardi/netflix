@@ -6,14 +6,14 @@ const ProfileCreator = () => {
   return (
     <div className="w-full h-screen">
       <div className=" h-full flex flex-col items-center justify-center md:flex-row ">
-        <div className="h-[120px] w-[120px] m-[20px]">
+        <div className="h-[120px] m-[20px] md:h-[150px]">
           <img className="w-full h-full" src={Avatar} alt="avatar" />
         </div>
         <div>
           <div>
             <input
               type="text"
-              className="p-[3px] bg-background border-[2px] border-red-400"
+              className="p-[3px] bg-background border-[2px] border-red-400 md:w-[250px]"
             />
           </div>
           <div className="flex gap-[20px] m-[20px]">
