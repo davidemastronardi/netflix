@@ -38,7 +38,7 @@ const AddProfile = () => {
           }}
           className="w-full p-[20px] flex align-baseline items-center justify-end mr-[10px]"
         >
-          <img className="md:w-[50px]" src={Checkmark} alt="arrowBack" />
+          <img className="hidden md:block w-[50px]" src={Checkmark} alt="arrowBack" />
 
           <h1 className="hidden md:block text-[30px]">Salva</h1>
         </div>
