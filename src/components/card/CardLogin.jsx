@@ -6,7 +6,7 @@ const CardLogin = ({name}) => {
     <div>
       <div className="w-[100px] text-center">
         <div className="w-full h-[100px] hover:border-[4px]">
-          <img className="rounded-[5px]" src={Account2} alt="avatar" />
+          <img className="" src={Account2} alt="avatar" />
         </div>
         <p className="my-[10px] ">{name}</p>
       </div>

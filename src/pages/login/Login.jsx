@@ -3,21 +3,29 @@ import CardLogin from "../../../src/components/card/CardLogin";
 import CardAddAccount from "../../../src/components/card/CardAddAccount";
 import Logonetflix from "../../img/logonetflix.png";
 import { MyContext } from "../../App";
+import Pen from "../../img/pen.svg";
 
 const Login = () => {
-  const {users}= useContext(MyContext);
+  const { users } = useContext(MyContext);
 
-
-  const renderCardLogin=()=>{
-    return users.map((user,)=><li><CardLogin name={user.name}/></li>)
-  }
+  const renderCardLogin = () => {
+    return users.map((user) => (
+      <li>
+        <CardLogin name={user.name} />
+      </li>
+    ));
+  };
   return (
     <div className="w-full h-screen flex items-center justify-center relative">
-      <img
-        className="h-[40px] absolute left-0 top-0 m-[20px] "
-        src={Logonetflix}
-        alt="logo"
-      />
+    
+      <div className="w-full absolute top-0 flex justify-center md:justify-between p-[20px] ">
+      <img className="w-[150px]" src={Logonetflix} alt="arrowBack" />
+      <div className="flex ">
+      <img className="hidden md:block w-[30px]" src={Pen} alt="arrowBack" />
+
+<h1 className="hidden md:block text-[30px]">Gestisci</h1>
+      </div>
+      </div>
       <div className="w-full h-sreen flex flex-col items-center">
         <h1 className="text-[30px] text-center my-[20px] md:text-[40px] ">
           Chi vuole guardare Netflix?
