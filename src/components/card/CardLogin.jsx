@@ -1,5 +1,5 @@
 import React from "react";
-import Account2 from "../../img/accountRandom/account2.png"
+
 
 const CardLogin = ({name,image}) => {
   return (

@@ -4,6 +4,15 @@ import CardAddAccount from "../../../src/components/card/CardAddAccount";
 import Logonetflix from "../../img/logonetflix.png";
 import { MyContext } from "../../App";
 import Pen from "../../img/pen.svg";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useRouteMatch,
+  useParams,
+  useNavigate,
+} from "react-router-dom";
 
 const Login = () => {
   const { users } = useContext(MyContext);
@@ -11,8 +20,10 @@ const Login = () => {
 
   const renderCardLogin = () => {
     return users.map((user,i) => (
-      <li key={i}>
+      <li key={i}> 
+       <Link to="/home">
         <CardLogin  name={user.name} image={user.image} />
+        </Link>
       </li>
     ));
   };
@@ -34,7 +45,9 @@ const Login = () => {
         <ul className="w-[90%] md:w-[768px] flex flex-wrap gap-[20px] justify-center">
           {renderCardLogin()}
           <li>
+          
             <CardAddAccount />
+          
           </li>
         </ul>
       </div>

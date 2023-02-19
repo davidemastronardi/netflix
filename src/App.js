@@ -12,7 +12,8 @@ import {
 import Login from "./pages/login/Login";
 import AddProfile from "./pages/login/AddProfile";
 import { createContext, useState } from "react";
-import Avatar from "../src/img/accountRandom/account10.png"
+import Home from "./pages/Home";
+
 
 export const MyContext = createContext();
 
@@ -33,8 +34,10 @@ function App() {
             <Routes>
               <Route element={<Login />} path="/"></Route>
               <Route element={<AddProfile />} path="/addProfile"></Route>
+            <Route element={<Home />} path="/home"></Route>
             </Routes>
-            <Routes></Routes>
+            <Routes>
+            </Routes>
           </div>
         </Router>
       </MyContext.Provider>
