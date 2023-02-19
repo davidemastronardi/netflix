@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { MyContext } from "../App";
-import Avatar from "../img/accountRandom/account1.png";
 import Checkmark from "../img/checkmark.svg";
 import Edit from "../img/edit.svg";
 import Account3 from "../img/accountRandom/account3.png";
@@ -38,15 +37,22 @@ const ProfileCreator = ({ input, setUserImage }) => {
       <div key={i}
         onClick={() => {
           setImageSelected(image);
-          setUserImage(image);
           setEditProfileImage(!editProfileImage)
         }}
+
+       
+     
         className="hover:border-[1px] w-[50px] h-[50px]"
       >
         <img src={image} alt="" />
       </div>
     ));
   };
+
+
+  useEffect(() => {
+    setUserImage(imageSelected)
+  }, [imageSelected]);
 
   return (
     <div className="w-full h-screen">
@@ -80,18 +86,6 @@ const ProfileCreator = ({ input, setUserImage }) => {
             </label>
             <h1>Bambino/a?</h1>
           </div>
-        </div>
-        <div
-          onClick={() => {
-            setUsers((state) => {
-              return [...state, { name: input.current.value }];
-            });
-            navigate("/");
-          }}
-          className="m-[20px] text-[30px] flex align-baseline items-center gap-[10px] md:hidden"
-        >
-          <img className="w-[50px] " src={Checkmark} alt="Checkmark" />
-          <h1>Salva</h1>
         </div>
       </div>
     </div>

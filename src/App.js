@@ -20,7 +20,7 @@ export const MyContext = createContext();
 
 
 function App() {
-  const [users, setUsers] = useState([{name:"pippo", image:Avatar}
+  const [users, setUsers] = useState([
 
   ]);
  
