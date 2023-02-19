@@ -12,14 +12,19 @@ import {
 import Login from "./pages/login/Login";
 import AddProfile from "./pages/login/AddProfile";
 import { createContext, useState } from "react";
+import Avatar from "../src/img/accountRandom/account10.png"
 
 export const MyContext = createContext();
 
+
+
+
 function App() {
-  const [users, setUsers] = useState([
+  const [users, setUsers] = useState([{name:"pippo", image:Avatar}
 
   ]);
-
+ 
+ 
   return (
     <div className="App">
       <MyContext.Provider value={{ users, setUsers }}>

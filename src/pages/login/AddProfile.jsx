@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { MyContext } from "../../App";
 import {
   BrowserRouter as Router,
@@ -16,7 +16,9 @@ import Checkmark from "../../img/checkmark.svg";
 const AddProfile = () => {
   const navigate = useNavigate();
   const { users, setUsers } = useContext(MyContext);
-
+  
+  const [ userImage, setUserImage ] = useState(null);
+  
   const input = useRef(null);
 
   return (
@@ -32,7 +34,7 @@ const AddProfile = () => {
         <div
           onClick={() => {
             setUsers((state) => {
-              return [...state, { name: input.current.value }];
+              return [...state, { name: input.current.value, image:userImage}];
             });
             navigate("/");
           }}
@@ -43,7 +45,7 @@ const AddProfile = () => {
           <h1 className="hidden md:block text-[30px]">Salva</h1>
         </div>
       </div>
-      <ProfileCreator input={input} />
+      <ProfileCreator input={input} setUserImage={setUserImage}  />
     </div>
   );
 };

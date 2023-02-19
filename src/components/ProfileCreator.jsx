@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { MyContext } from "../App";
 import Avatar from "../img/accountRandom/account1.png";
@@ -13,47 +13,57 @@ import Account8 from "../img/accountRandom/account8.png";
 import Account9 from "../img/accountRandom/account9.png";
 import Account10 from "../img/accountRandom/account10.png";
 
-const ProfileCreator = ({ input }) => {
+const ProfileCreator = ({ input, setUserImage }) => {
+  const arrayImage = [
+    Account3,
+    Account4,
+    Account5,
+    Account6,
+    Account7,
+    Account8,
+    Account9,
+    Account10,
+  ];
+
   const navigate = useNavigate();
+
   const { users, setUsers } = useContext(MyContext);
-  
+
+  const [editProfileImage, setEditProfileImage] = useState(false);
+
+  const [imageSelected, setImageSelected] = useState(arrayImage[0]);
+
+  const renderSelectImages = () => {
+    return arrayImage.map((image,i) => (
+      <div key={i}
+        onClick={() => {
+          setImageSelected(image);
+          setUserImage(image);
+          setEditProfileImage(!editProfileImage)
+        }}
+        className="hover:border-[1px] w-[50px] h-[50px]"
+      >
+        <img src={image} alt="" />
+      </div>
+    ));
+  };
+
   return (
-    
     <div className="w-full h-screen">
       <div className=" h-full flex flex-col items-center justify-center md:flex-row ">
         <div className="h-[120px] m-[20px] md:h-[150px] relative ">
-          <img className="w-full h-full" src={Avatar} alt="avatar" />
+          <img className="w-full h-full" src={imageSelected} alt="avatar" />
           <img
+            onClick={() => setEditProfileImage(!editProfileImage)}
             className="absolute bottom-0 w-[30px] md:w-[40px]"
             src={Edit}
             alt="edit"
           />
-          <div className="w-[194px] md:w-[254px] bg-background border-[1px] border-gray-400 absolute z-10 p-[10px] flex gap-[10px] flex-wrap ">
-            <div className="hover:border-[1px] w-[50px] h-[50px]">
-              <img src={Account3} alt="" />
+          {editProfileImage && (
+            <div className="w-[194px] md:w-[254px] bg-background border-[1px] border-gray-400 absolute z-10 p-[10px] flex gap-[10px] flex-wrap ">
+              {renderSelectImages()}
             </div>
-            <div className="hover:border-[1px] w-[50px] h-[50px]">
-              <img src={Account4} alt="" />
-            </div>
-            <div className="hover:border-[1px] w-[50px] h-[50px]">
-              <img src={Account5} alt="" />
-            </div>
-            <div className="hover:border-[1px] w-[50px] h-[50px]">
-              <img src={Account6} alt="" />
-            </div>
-            <div className="hover:border-[1px] w-[50px] h-[50px]">
-              <img src={Account7} alt="" />
-            </div>
-            <div className="hover:border-[1px] w-[50px] h-[50px]">
-              <img src={Account8} alt="" />
-            </div>
-            <div className="hover:border-[1px] w-[50px] h-[50px]">
-              <img src={Account9} alt="" />
-            </div>
-            <div className="hover:border-[1px] w-[50px] h-[50px]">
-              <img src={Account10} alt="" />
-            </div>
-          </div>
+          )}
         </div>
         <div>
           <div>

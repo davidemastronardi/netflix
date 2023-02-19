@@ -7,11 +7,12 @@ import Pen from "../../img/pen.svg";
 
 const Login = () => {
   const { users } = useContext(MyContext);
+ 
 
   const renderCardLogin = () => {
-    return users.map((user) => (
-      <li>
-        <CardLogin name={user.name} />
+    return users.map((user,i) => (
+      <li key={i}>
+        <CardLogin  name={user.name} image={user.image} />
       </li>
     ));
   };
