@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import HamgurgerMenu from "../img/hamburgermenu.svg";
 import Logo from "../img/logonetflix.png";
 import Avatar from "../img/accountRandom/account2.png";
+import Research from "../img/research.svg"
 import {
   BrowserRouter as Router,
   Switch,
@@ -21,20 +22,35 @@ const HamburgerMenu = () => {
       <div className="w-full h-[70px] top-0 flex justify-between items-center p-[20px] fixed z-10">
         <img
           onClick={() => setOpenMenu(!openMenu)}
-          className="w-[25px]"
+          className="w-[25px] md:hidden"
           src={HamgurgerMenu}
           alt="hamburgermenu"
         />
-        <img className="w-[85px]" src={Logo} alt="logonetflix" />
+        <div className="flex justify-center gap-[40px]">
+          <img className="w-[85px]" src={Logo} alt="logonetflix" />
+          <div>
+            <ul className="hidden md:flex gap-[20px] text-[15px]">
+              <li>Home</li>
+              <li>Serie Tv</li>
+              <li>Film</li>
+              <li>Nuovi e popolari</li>
+              <li>La mia lista</li>
+              <li>Sfoglia per lingua</li>
+            </ul>
+          </div>
+        </div>
+        <div className="flex gap-[10px]">
+          <img className="w-[20px]" src={Research} alt="Research" />
         <input
-          className="bg-background opacity w-[115px] h-[28px]"
+          className="hidden md:bg-background opacity w-[115px] h-[28px]"
           type="search"
           name=""
           id=""
         />
+        </div>
       </div>
       {openMenu && (
-        <div className="w-[250px] h-screen bg-black fixed flex flex-col z-20 mt-[70px]">
+        <div className="w-[250px] h-screen bg-black fixed flex flex-col z-20 mt-[70px] md:hidden">
           <Link to="/">
             <div className="flex gap-[10px] items-end pl-[20px] pt-[20px]">
               <div>
