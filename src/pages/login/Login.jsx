@@ -16,38 +16,34 @@ import {
 
 const Login = () => {
   const { users } = useContext(MyContext);
- 
 
   const renderCardLogin = () => {
-    return users.map((user,i) => (
-      <li key={i}> 
-       <Link to="/home">
-        <CardLogin  name={user.name} image={user.image} />
+    return users.map((user, i) => (
+      <li key={i}>
+        <Link to="/home">
+          <CardLogin name={user.name} image={user.image} />
         </Link>
       </li>
     ));
   };
   return (
     <div className="w-full h-screen flex items-center justify-center relative">
-    
       <div className="w-full absolute top-0 flex justify-center md:justify-between p-[20px] ">
-      <img className="w-[150px]" src={Logonetflix} alt="arrowBack" />
-      <div className="flex ">
-      <img className="hidden md:block w-[30px]" src={Pen} alt="arrowBack" />
+        <img className="w-[150px]" src={Logonetflix} alt="arrowBack" />
+        <div className="flex ">
+          <img className="hidden md:block w-[30px]" src={Pen} alt="arrowBack" />
 
-<h1 className="hidden md:block text-[30px]">Gestisci</h1>
-      </div>
+          <h1 className="hidden md:block text-[30px]">Gestisci</h1>
+        </div>
       </div>
       <div className="w-full h-sreen flex flex-col items-center">
-        <h1 className="text-[30px] text-center my-[20px] md:text-[40px] ">
+        <h1 className="text-[30px] text-center my-[20px] md:text-[60px] ">
           Chi vuole guardare Netflix?
         </h1>
         <ul className="w-[90%] md:w-[768px] flex flex-wrap gap-[20px] justify-center">
           {renderCardLogin()}
           <li>
-          
             <CardAddAccount />
-          
           </li>
         </ul>
       </div>
