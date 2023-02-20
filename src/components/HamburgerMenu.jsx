@@ -34,7 +34,7 @@ const HamburgerMenu = () => {
         />
       </div>
       {openMenu && (
-        <div className="w-[250px] h-screen bg-black fixed flex flex-col z-10  mt-[70px]">
+        <div className="w-[250px] h-screen bg-black fixed flex flex-col z-20 mt-[70px]">
           <Link to="/">
             <div className="flex gap-[10px] items-end pl-[20px] pt-[20px]">
               <div>
