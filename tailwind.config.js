@@ -23,6 +23,7 @@ module.exports = {
     extend: {
       colors: {
         'background': '#141414',
+        'hamburgerMenu': '#191919',
       },
     },
   },
