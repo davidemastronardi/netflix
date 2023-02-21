@@ -18,8 +18,8 @@ const HamburgerMenu = () => {
 
   return (
     <div className="w-full h-screen">
-      <div className="w-full h-[70px] bg-black opacity fixed top-0"></div>
-      <div className="w-full h-[70px] top-0 flex justify-between items-center p-[20px] fixed z-10">
+      <div className="w-full h-[70px] bg-black opacity top-0 fixed z-10"></div>
+      <div className="ab fixed z-10 w-full h-[70px] top-0 flex justify-between items-center p-[20px] ">
         <img
           onClick={() => setOpenMenu(!openMenu)}
           className="w-[25px] md:hidden"
