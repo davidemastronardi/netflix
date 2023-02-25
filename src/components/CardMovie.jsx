@@ -20,7 +20,7 @@ const CardMovie = ({ movie }) => {
 
           <div className=" w-[50%] h-[60%] flex flex-col justify-center items-center text-center p-[10px] text-[20px]">
             <h1>{movie.title}</h1>
-            <h1 className="mt-[20px] text-red-600">Voto</h1>
+            <h1 className="mt-[20px] text-red-600">Voto</h1> 
             <h1 className="text-[30px]">{movie.vote_average}</h1>
           </div>
           <div className="w-full h-[40%] p-[10px] text-[12px]">
