@@ -4,18 +4,25 @@ import HamburgerMenu from "../components/HamburgerMenu";
 import TrailersHome from "../components/TrailersHome";
 
 const Home = () => {
-  const [hoverText, setHoverText] = useState(false);
 
-  function getMovies() {
-    fetch(
-      "https://api.themoviedb.org/3/movie/popular?api_key=772d190aaeb94b7d41eebcb2a98e6bc0"
-    )
-      .then((response) => response.json())
-      .then((data) => console.log(data));
+  const [moviePopular, setMoviePopular] = useState([]);
+
+  const getPopular = () => {
+    fetch("https://api.themoviedb.org/3/movie/popular?api_key=772d190aaeb94b7d41eebcb2a98e6bc0")
+      .then((res) => res.json())
+      .then((data) => {
+        setMoviePopular(data.results)
+      });
+  }
+
+  function renderCardMovie() {
+    return moviePopular.map((movie,i) => {
+      return <CardMovie key={i} movie={movie} />
+    })
   }
 
   useEffect(() => {
-    getMovies();
+    getPopular()
   }, []);
 
   return (
@@ -28,17 +35,13 @@ const Home = () => {
           </div>
           <div>
             <h1
-              onMouseEnter={() => setHoverText(!hoverText)}
-              onMouseLeave={() => setHoverText(!hoverText)}
-              className="text-[20px] font-medium ml-[50px] mt-[10px] "
-            >
-              La mia lista {!hoverText && <span>ciao</span>}
-            </h1>
-            <div className="mt-[10px]">
-              <CardMovie />
-              
-              
              
+              className="text-[30px] font-medium mt-[20px] ml-[80px] "
+            >
+              Più popolari
+            </h1>
+            <div className="mt-[20px] ml-[60px] md:ml-[80px] flex flex-wrap gap-[15px]">
+              {renderCardMovie()}
             </div>
           </div>
         </div>
