@@ -10,7 +10,7 @@ const Home = () => {
   const getPopular = () => {
     fetch("https://api.themoviedb.org/3/movie/popular?api_key=772d190aaeb94b7d41eebcb2a98e6bc0")
       .then((res) => res.json())
-      .then((data) => {
+      .then((data) => { 
         setMoviePopular(data.results)
       });
   }
