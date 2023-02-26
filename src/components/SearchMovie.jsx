@@ -26,9 +26,9 @@ const SearchMovie = () => {
     }
 
     return (
-        <div className="absolute w-full top-[70px] z-10 bg-slate-600 pb-[20px] ">
+        <div className="absolute w-full top-[70px] pb-[50px] ">
             <div className='flex justify-center mt-[20px]'>
-                <input onChange={(e) => setInput(e.target.value)} className='bg-background rounded-[50px]' type="search" name="" id="" />
+                <input onChange={(e) => setInput(e.target.value)} className='bg-black rounded-[50px]' type="search" name="" id="" />
             </div>
             <div className='mt-[20px] ml-[60px] md:ml-[80px] flex flex-wrap gap-[15px]'>
                 {renderCardMovie()}

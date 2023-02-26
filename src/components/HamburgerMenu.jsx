@@ -3,6 +3,8 @@ import HamgurgerMenu from "../img/hamburgermenu.svg";
 import Logo from "../img/logonetflix.png";
 import Avatar from "../img/accountRandom/account2.png";
 import Research from "../img/research.svg"
+import Exit from "../img/exit.svg"
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -41,6 +43,7 @@ const HamburgerMenu = ({setOpenSearch}) => {
         </div>
         <div className="flex gap-[10px]">
           <img onClick={()=> setOpenSearch(true)} className="w-[20px]" src={Research} alt="Research" />
+          <img onClick={()=> setOpenSearch(false)} className="w-[20px]" src={Exit} alt="exit" />
         <input
           className="hidden md:bg-background opacity w-[115px] h-[28px]"
           type="search"
