@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Trailer from "../img/Trailer.mp4";
 import LogoTitle from "../img/logotitle.png";
 
 const TrailersHome = () => {
+
   return (
     <div>
       <div className="w-full relative flex  items-center">
