@@ -10,6 +10,7 @@ const Home = () => {
   const [moviePiuVotati, setMoviePiuVotati] = useState([]);
   const [movieInArrivo, setMovieInArrivo] = useState([]);
   const [openseSearch, setOpenSearch] = useState(false);
+  
 
   
 
@@ -68,9 +69,11 @@ const Home = () => {
 
   return (
     <div>
-      <div className="relative ">
+      <div className="relative">
         <HamburgerMenu setOpenSearch={setOpenSearch} />
-        <div className="absolute top-0 mt-[70px] pb-[70px]">
+        {openseSearch &&
+            <SearchMovie />}
+        {!openseSearch &&<div className="absolute top-0 mt-[70px] pb-[70px]">
           <div className="z-0">
             <TrailersHome />
           </div>
@@ -92,9 +95,8 @@ const Home = () => {
               {renderCardMovieInArrivo()}
             </div>
           </div>
-          {openseSearch &&
-            <SearchMovie />}
-        </div>
+          
+        </div>}
       </div>
     </div>
   );
