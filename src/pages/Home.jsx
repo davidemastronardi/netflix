@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import CardMovie from "../components/CardMovie";
 import HamburgerMenu from "../components/HamburgerMenu";
+import SearchMovie from "../components/SearchMovie";
 import TrailersHome from "../components/TrailersHome";
 
 const Home = () => {
@@ -8,6 +9,11 @@ const Home = () => {
   const [moviePopular, setMoviePopular] = useState([]);
   const [moviePiuVotati, setMoviePiuVotati] = useState([]);
   const [movieInArrivo, setMovieInArrivo] = useState([]);
+  const [openseSearch, setOpenSearch] = useState(false);
+
+  
+
+
 
   const getPopular = () => {
     fetch("https://api.themoviedb.org/3/movie/popular?api_key=772d190aaeb94b7d41eebcb2a98e6bc0")
@@ -16,7 +22,7 @@ const Home = () => {
         setMoviePopular(data.results)
       });
   }
-  
+
   const getPiuVotati = () => {
     fetch("https://api.themoviedb.org/3/movie/top_rated?api_key=772d190aaeb94b7d41eebcb2a98e6bc0")
       .then((res) => res.json())
@@ -24,7 +30,7 @@ const Home = () => {
         setMoviePiuVotati(data.results)
       });
   }
-  
+
   const getInArrivo = () => {
     fetch("https://api.themoviedb.org/3/movie/upcoming?api_key=772d190aaeb94b7d41eebcb2a98e6bc0")
       .then((res) => res.json())
@@ -32,39 +38,41 @@ const Home = () => {
         setMovieInArrivo(data.results)
       });
   }
-  
+
+
   function renderCardMoviePiuVotati() {
-  return moviePiuVotati.map((movie, i) => {
+    return moviePiuVotati.map((movie, i) => {
       return <CardMovie key={i} movie={movie} />
     })
   }
 
   function renderCardMoviePopular() {
-  return moviePopular.map((movie, i) => {
+    return moviePopular.map((movie, i) => {
       return <CardMovie key={i} movie={movie} />
     })
   }
-  
+
   function renderCardMovieInArrivo() {
-  return movieInArrivo.map((movie, i) => {
+    return movieInArrivo.map((movie, i) => {
       return <CardMovie key={i} movie={movie} />
     })
   }
-  
+
 
   useEffect(() => {
     getPopular()
     getPiuVotati()
     getInArrivo()
+    
   }, []);
 
   return (
     <div>
       <div className="relative ">
-        <HamburgerMenu />
+        <HamburgerMenu setOpenSearch={setOpenSearch} />
         <div className="absolute top-0 mt-[70px] pb-[70px]">
           <div className="z-0">
-            <TrailersHome  />
+            <TrailersHome />
           </div>
           <div>
             <h1 className="text-[30px] font-medium mt-[20px] ml-[80px]">Più popolari</h1>
@@ -84,6 +92,8 @@ const Home = () => {
               {renderCardMovieInArrivo()}
             </div>
           </div>
+          {openseSearch &&
+            <SearchMovie />}
         </div>
       </div>
     </div>

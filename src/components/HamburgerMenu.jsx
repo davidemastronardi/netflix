@@ -13,7 +13,7 @@ import {
   useNavigate,
 } from "react-router-dom";
 
-const HamburgerMenu = () => {
+const HamburgerMenu = ({setOpenSearch}) => {
   const [openMenu, setOpenMenu] = useState(false);
 
   return (
@@ -40,7 +40,7 @@ const HamburgerMenu = () => {
           </div>
         </div>
         <div className="flex gap-[10px]">
-          <img className="w-[20px]" src={Research} alt="Research" />
+          <img onClick={()=> setOpenSearch(true)} className="w-[20px]" src={Research} alt="Research" />
         <input
           className="hidden md:bg-background opacity w-[115px] h-[28px]"
           type="search"
