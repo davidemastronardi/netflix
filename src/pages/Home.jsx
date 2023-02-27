@@ -70,7 +70,7 @@ const Home = () => {
   return (
     <div>
       <div className="relative">
-        <HamburgerMenu setOpenSearch={setOpenSearch} />
+        <HamburgerMenu openseSearch={openseSearch} setOpenSearch={setOpenSearch} />
         {openseSearch &&
             <SearchMovie />}
         {!openseSearch &&<div className="absolute top-0 mt-[70px] pb-[70px]">

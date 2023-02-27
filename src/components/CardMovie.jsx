@@ -1,18 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 
 
 
 const CardMovie = ({ movie }) => {
-  console.log(movie);
+ 
 
   const [openCard, setOpenCard] = useState(true);
 
 
-
   return (
 
-    <div onClick={() => setOpenCard(!openCard)} className="w-[100px] h-[150px] md:w-[200px] md:h-[300px] relative ">
+    <div onClick={() =>(setOpenCard(!openCard))} className="w-[100px] h-[150px] md:w-[200px] md:h-[300px] relative ">
       <img className="" src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`} alt="poster" />
       {!openCard && <div className="bg-black hidden md:block md:-w-[315px] md:min-h-[415px] absolute z-10 bottom-0 md:left-[-60px]">
         <div className="h-full w-full flex flex-row flex-wrap">
